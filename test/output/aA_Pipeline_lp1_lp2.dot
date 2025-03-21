@@ -1,0 +1,120 @@
+digraph "DFG for 'aA_Pipeline_lp1_lp2' function" {
+	Node0x2c736db0[shape=record, label="  %j = alloca i7, align 1, !bitwidth !56"];
+	Node0x2c736e20[shape=record, label="  %i = alloca i7, align 1, !bitwidth !56"];
+	Node0x2c736eb0[shape=record, label="  %indvar_flatten6 = alloca i13, align 2, !bitwidth !57"];
+	Node0x2c7370a0[shape=record, label="  %alpha_read = call float @_ssdm_op_Read.ap_auto.float(float %alpha) #1, !bitwidth !45"];
+	Node0x2c7371c0[shape=record, label="  store i13 0, i13* %indvar_flatten6, align 2, !bitwidth !9, !dep_idx !58, !deps !59"];
+	Node0x2c7374b0[shape=record, label="  store i7 0, i7* %i, align 1, !bitwidth !9, !dep_idx !64, !deps !65"];
+	Node0x2c7377c0[shape=record, label="  store i7 0, i7* %j, align 1, !bitwidth !9, !dep_idx !68, !deps !69"];
+	Node0x2c737b00[shape=record, label="  br label %for.inc27, !bitwidth !9"];
+	Node0x2c737ca0[shape=record, label="  ret void, !bitwidth !9"];
+	Node0x2c737d10[shape=record, label="  %indvar_flatten6_load = load i13, i13* %indvar_flatten6, align 2, !bitwidth !72, !dep_idx !73, !deps !74"];
+	Node0x2c738120[shape=record, label="  call void (...) @_ssdm_op_SpecPipeline(i32 -1, i32 0, i32 1, i32 0, [1 x i8]* @p_str) #1"];
+	Node0x2c738230[shape=record, label="  %icmp_ln16 = icmp eq i13 %indvar_flatten6_load, -4096, !bitwidth !79"];
+	Node0x2c7382f0[shape=record, label="  %add_ln16_1 = add i13 %indvar_flatten6_load, 1, !bitwidth !72"];
+	Node0x2c7385c0[shape=record, label="  br i1 %icmp_ln16, label %for.inc47.preheader.exitStub, label %for.inc30, !bitwidth !9"];
+	Node0x2c738630[shape=record, label="  %j_load = load i7, i7* %j, align 1, !bitwidth !80, !dep_idx !81, !deps !82"];
+	Node0x2c738920[shape=record, label="  %i_load = load i7, i7* %i, align 1, !bitwidth !80, !dep_idx !85, !deps !86"];
+	Node0x2c738c50[shape=record, label="  %add_ln16 = add i7 %i_load, 1, !bitwidth !80"];
+	Node0x2c738d10[shape=record, label="  call void (...) @_ssdm_op_SpecLoopName([8 x i8]* @lp1_lp2_str)"];
+	Node0x2c736c90[shape=record, label="  %empty = call i32 (...) @_ssdm_op_SpecLoopTripCount(i64 4096, i64 4096, i64 4096) #1"];
+	Node0x2c738e90[shape=record, label="  %icmp_ln17 = icmp eq i7 %j_load, -64, !bitwidth !79"];
+	Node0x2c738f40[shape=record, label="  %select_ln16 = select i1 %icmp_ln17, i7 0, i7 %j_load, !bitwidth !80"];
+	Node0x2c738ff0[shape=record, label="  %select_ln16_1 = select i1 %icmp_ln17, i7 %add_ln16, i7 %i_load, !bitwidth !80"];
+	Node0x2c739090[shape=record, label="  %trunc_ln18 = trunc i7 %select_ln16_1 to i6, !bitwidth !89"];
+	Node0x2c72fe20[shape=record, label="  %tmp_1 = call i12 @_ssdm_op_BitConcatenate.i12.i6.i6(i6 %trunc_ln18, i6 0), !bitwidth !90"];
+	Node0x2c72ff90[shape=record, label="  call void (...) @_ssdm_op_SpecPipeline(i32 -1, i32 0, i32 1, i32 0, [1 x i8]* @p_str) #1"];
+	Node0x2c730080[shape=record, label="  %zext_ln18 = zext i7 %select_ln16 to i12, !bitwidth !91"];
+	Node0x2c730110[shape=record, label="  %add_ln18 = add i12 %tmp_1, %zext_ln18, !bitwidth !90"];
+	Node0x2c7304a0[shape=record, label="  %zext_ln18_1 = zext i12 %add_ln18 to i64, !bitwidth !92"];
+	Node0x2c73a180[shape=record, label="  %buff_A_addr = getelementptr [4096 x float], [4096 x float]* %buff_A, i64 0, i64 %zext_ln18_1, !bitwidth !9"];
+	Node0x2c73a270[shape=record, label="  %buff_A_out_addr = getelementptr [4096 x float], [4096 x float]* %buff_A_out, i64 0, i64 %zext_ln18_1, !bitwidth !9"];
+	Node0x2c73a3a0[shape=record, label="  call void (...) @_ssdm_op_SpecLoopName([4 x i8]* @empty_4)"];
+	Node0x2c73a470[shape=record, label="  %buff_A_load = load float, float* %buff_A_addr, align 4, !bitwidth !45"];
+	Node0x2c73a500[shape=record, label="  %mul = fmul float %buff_A_load, %alpha_read, !bitwidth !45"];
+	Node0x2c73a590[shape=record, label="  store float %mul, float* %buff_A_out_addr, align 4, !bitwidth !9"];
+	Node0x2c73a620[shape=record, label="  %add_ln17 = add i7 %select_ln16, 1, !bitwidth !80"];
+	Node0x2c732c50[shape=record, label="  store i13 %add_ln16_1, i13* %indvar_flatten6, align 2, !bitwidth !9, !dep_idx !93, !deps !94"];
+	Node0x2c7294e0[shape=record, label="  store i7 %select_ln16_1, i7* %i, align 1, !bitwidth !9, !dep_idx !98, !deps !99"];
+	Node0x2c7297f0[shape=record, label="  store i7 %add_ln17, i7* %j, align 1, !bitwidth !9, !dep_idx !102, !deps !103"];
+	Node0x2c733590[shape=record, label="  br label %for.inc27, !llvm.loop !106, !bitwidth !9"];
+	Node0x2c736db0 -> Node0x2c736e20
+	Node0x2c736e20 -> Node0x2c736eb0
+	Node0x2c736eb0 -> Node0x2c7370a0
+	Node0x2c7370a0 -> Node0x2c7371c0
+	Node0x2c7371c0 -> Node0x2c7374b0
+	Node0x2c7374b0 -> Node0x2c7377c0
+	Node0x2c7377c0 -> Node0x2c737b00
+	Node0x2c737b00 -> Node0x2c737d10
+	Node0x2c737d10 -> Node0x2c738120
+	Node0x2c738120 -> Node0x2c738230
+	Node0x2c738230 -> Node0x2c7382f0
+	Node0x2c7382f0 -> Node0x2c7385c0
+	Node0x2c7385c0 -> Node0x2c737ca0
+	Node0x2c7385c0 -> Node0x2c738630
+	Node0x2c738630 -> Node0x2c738920
+	Node0x2c738920 -> Node0x2c738c50
+	Node0x2c738c50 -> Node0x2c738d10
+	Node0x2c738d10 -> Node0x2c736c90
+	Node0x2c736c90 -> Node0x2c738e90
+	Node0x2c738e90 -> Node0x2c738f40
+	Node0x2c738f40 -> Node0x2c738ff0
+	Node0x2c738ff0 -> Node0x2c739090
+	Node0x2c739090 -> Node0x2c72fe20
+	Node0x2c72fe20 -> Node0x2c72ff90
+	Node0x2c72ff90 -> Node0x2c730080
+	Node0x2c730080 -> Node0x2c730110
+	Node0x2c730110 -> Node0x2c7304a0
+	Node0x2c7304a0 -> Node0x2c73a180
+	Node0x2c73a180 -> Node0x2c73a270
+	Node0x2c73a270 -> Node0x2c73a3a0
+	Node0x2c73a3a0 -> Node0x2c73a470
+	Node0x2c73a470 -> Node0x2c73a500
+	Node0x2c73a500 -> Node0x2c73a590
+	Node0x2c73a590 -> Node0x2c73a620
+	Node0x2c73a620 -> Node0x2c732c50
+	Node0x2c732c50 -> Node0x2c7294e0
+	Node0x2c7294e0 -> Node0x2c7297f0
+	Node0x2c7297f0 -> Node0x2c733590
+	Node0x2c733590 -> Node0x2c737d10
+edge [color=red]
+	Node0x2c728910 -> Node0x2c7371c0
+	Node0x2c7371c0 -> Node0x2c736eb0
+	Node0x2c728f40 -> Node0x2c7374b0
+	Node0x2c7374b0 -> Node0x2c736e20
+	Node0x2c728f40 -> Node0x2c7377c0
+	Node0x2c7377c0 -> Node0x2c736db0
+	Node0x2c736eb0 -> Node0x2c737d10
+	Node0x2c737d10 -> Node0x2c738230
+	Node0x2c737d10 -> Node0x2c7382f0
+	Node0x2c738230 -> Node0x2c7385c0
+	Node0x2c736db0 -> Node0x2c738630
+	Node0x2c736e20 -> Node0x2c738920
+	Node0x2c738920 -> Node0x2c738c50
+	Node0x2c738630 -> Node0x2c738e90
+	Node0x2c738e90 -> Node0x2c738f40
+	Node0x2c738630 -> Node0x2c738f40
+	Node0x2c738e90 -> Node0x2c738ff0
+	Node0x2c738c50 -> Node0x2c738ff0
+	Node0x2c738920 -> Node0x2c738ff0
+	Node0x2c738ff0 -> Node0x2c739090
+	Node0x2c739090 -> Node0x2c72fe20
+	Node0x2c738f40 -> Node0x2c730080
+	Node0x2c72fe20 -> Node0x2c730110
+	Node0x2c730080 -> Node0x2c730110
+	Node0x2c730110 -> Node0x2c7304a0
+	Node0x2c7304a0 -> Node0x2c73a180
+	Node0x2c7304a0 -> Node0x2c73a270
+	Node0x2c73a180 -> Node0x2c73a470
+	Node0x2c73a470 -> Node0x2c73a500
+	Node0x2c7370a0 -> Node0x2c73a500
+	Node0x2c73a500 -> Node0x2c73a590
+	Node0x2c73a590 -> Node0x2c73a270
+	Node0x2c738f40 -> Node0x2c73a620
+	Node0x2c7382f0 -> Node0x2c732c50
+	Node0x2c732c50 -> Node0x2c736eb0
+	Node0x2c738ff0 -> Node0x2c7294e0
+	Node0x2c7294e0 -> Node0x2c736e20
+	Node0x2c73a620 -> Node0x2c7297f0
+	Node0x2c7297f0 -> Node0x2c736db0
+}

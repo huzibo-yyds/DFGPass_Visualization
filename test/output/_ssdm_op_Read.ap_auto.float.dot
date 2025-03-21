@@ -1,0 +1,4 @@
+digraph "DFG for '_ssdm_op_Read.ap_auto.float' function" {
+	Node0x2c740310[shape=record, label="  ret float %0"];
+edge [color=red]
+}

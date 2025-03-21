@@ -1,0 +1,35 @@
+digraph "DFG for 'aA' function" {
+	Node0x2c733bf0[shape=record, label="  call void (...) @_ssdm_op_SpecTopModule([3 x i8]* @empty_2)"];
+	Node0x2c733dc0[shape=record, label="  call void (...) @_ssdm_op_SpecBitsMap(float %alpha), !map !56"];
+	Node0x2c73d440[shape=record, label="  call void (...) @_ssdm_op_SpecInterface(float %alpha, [8 x i8]* @empty, i32 0, i32 0, [1 x i8]* @empty_0, i32 0, i32 0, [1 x i8]* @empty_0, [1 x i8]* @empty_0, [1 x i8]* @empty_0, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @empty_0, [1 x i8]* @empty_0, i32 -1, i32 0)"];
+	Node0x2c73d9c0[shape=record, label="  call void (...) @_ssdm_op_SpecInterface([4096 x i32]* %A, [10 x i8]* @empty_1, i32 0, i32 0, [1 x i8]* @empty_0, i32 -1, i32 0, [1 x i8]* @empty_0, [1 x i8]* @empty_0, [1 x i8]* @empty_0, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @empty_0, [1 x i8]* @empty_0, i32 -1, i32 0)"];
+	Node0x2c73dab0[shape=record, label="  call void (...) @_ssdm_op_SpecBitsMap([4096 x i32]* %A), !map !56"];
+	Node0x2c73e610[shape=record, label="  call void (...) @_ssdm_op_SpecInterface([4096 x i32]* %A_out, [10 x i8]* @empty_1, i32 0, i32 0, [1 x i8]* @empty_0, i32 -1, i32 0, [1 x i8]* @empty_0, [1 x i8]* @empty_0, [1 x i8]* @empty_0, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @empty_0, [1 x i8]* @empty_0, i32 -1, i32 0)"];
+	Node0x2c73e700[shape=record, label="  call void (...) @_ssdm_op_SpecBitsMap([4096 x i32]* %A_out), !map !56"];
+	Node0x2c73e830[shape=record, label="  %alpha_read = call float @_ssdm_op_Read.ap_auto.float(float %alpha) #1, !bitwidth !45"];
+	Node0x2c73e900[shape=record, label="  %buff_A = alloca [4096 x float], i64 1, align 4, !bitwidth !9"];
+	Node0x2c73e970[shape=record, label="  %buff_A_out = alloca [4096 x float], i64 1, align 4, !bitwidth !9"];
+	Node0x2c73eaf0[shape=record, label="  call void @aA_Pipeline_lprd_1_lprd_2([4096 x i32]* %A, [4096 x float]* %buff_A), !bitwidth !9, !dep_idx !57, !deps !58"];
+	Node0x2c7254d0[shape=record, label="  call void @aA_Pipeline_lp1_lp2([4096 x float]* %buff_A, [4096 x float]* %buff_A_out, float %alpha_read), !bitwidth !9, !dep_idx !61, !deps !62"];
+	Node0x2c73f110[shape=record, label="  call void @aA_Pipeline_lpwr_1_lpwr_2([4096 x i32]* %A_out, [4096 x float]* %buff_A_out), !bitwidth !9, !dep_idx !66, !deps !67"];
+	Node0x2c73f400[shape=record, label="  ret void, !bitwidth !9"];
+	Node0x2c733bf0 -> Node0x2c733dc0
+	Node0x2c733dc0 -> Node0x2c73d440
+	Node0x2c73d440 -> Node0x2c73d9c0
+	Node0x2c73d9c0 -> Node0x2c73dab0
+	Node0x2c73dab0 -> Node0x2c73e610
+	Node0x2c73e610 -> Node0x2c73e700
+	Node0x2c73e700 -> Node0x2c73e830
+	Node0x2c73e830 -> Node0x2c73e900
+	Node0x2c73e900 -> Node0x2c73e970
+	Node0x2c73e970 -> Node0x2c73eaf0
+	Node0x2c73eaf0 -> Node0x2c7254d0
+	Node0x2c7254d0 -> Node0x2c73f110
+	Node0x2c73f110 -> Node0x2c73f400
+edge [color=red]
+	Node0x2c73e900 -> Node0x2c73eaf0
+	Node0x2c73e900 -> Node0x2c7254d0
+	Node0x2c73e970 -> Node0x2c7254d0
+	Node0x2c73e830 -> Node0x2c7254d0
+	Node0x2c73e970 -> Node0x2c73f110
+}
