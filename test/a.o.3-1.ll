@@ -1,5 +1,5 @@
-; ModuleID = './test/a.o.3-1.bc'
-source_filename = "./test/a.o.3-1.bc"
+; ModuleID = 'test/a.o.3-1.bc'
+source_filename = "test/a.o.3-1.bc"
 target datalayout = "e-m:e-i64:64-i128:128-i256:256-i512:512-i1024:1024-i2048:2048-i4096:4096-n8:16:32:64-S128-v16:16-v24:32-v32:32-v48:64-v96:128-v192:256-v256:256-v512:512-v1024:1024"
 
 $_ssdm_op_Write.ap_auto.i32P0A = comdat any
