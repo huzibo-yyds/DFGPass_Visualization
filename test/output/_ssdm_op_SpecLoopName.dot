@@ -1,4 +1,0 @@
-digraph "DFG for '_ssdm_op_SpecLoopName' function" {
-	Node0x2c73fc80[shape=record, label="  ret void"];
-edge [color=red]
-}

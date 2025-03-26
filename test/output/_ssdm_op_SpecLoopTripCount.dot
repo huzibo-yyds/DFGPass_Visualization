@@ -1,4 +1,0 @@
-digraph "DFG for '_ssdm_op_SpecLoopTripCount' function" {
-	Node0x2c73fa70[shape=record, label="  ret i32 0"];
-edge [color=red]
-}

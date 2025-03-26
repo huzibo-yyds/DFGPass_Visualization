@@ -1,4 +1,0 @@
-digraph "DFG for '_ssdm_op_SpecInterface' function" {
-	Node0x2c73fea0[shape=record, label="  ret void"];
-edge [color=red]
-}
