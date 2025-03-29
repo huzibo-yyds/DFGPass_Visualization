@@ -114,14 +114,22 @@ public:
     file << "digraph \"DFG for '" + F.getName() + "\' function\" {\n";
     // 将node节点dump
     for (auto node : nodes) {
-      // errs() << "Node First:" << node->first << "\n";
-      // errs() << "Node Second:" << node-> second << "\n";
-      if (dyn_cast<Instruction>(node))
-        file << "\tNode" << node << "[shape=record, label=\"" << *(node)
+      if (auto *inst = dyn_cast<Instruction>(node)) {
+        std::string s;
+        raw_string_ostream os(s);
+        if (auto *callInst = dyn_cast<CallInst>(inst)) {
+          os << (inst->getName().empty() ? "" : "%" + inst->getName() + " = ")
+             << "call "
+             << "@" << callInst->getCalledFunction()->getName();
+        } else {
+          os << *inst;
+        }
+        file << "\tNode" << node << "[shape=record, label=\"" << os.str()
              << "\"];\n";
-      else
+      } else {
         file << "\tNode" << node << "[shape=record, label=\""
              << getValueName(node) << "\"];\n";
+      }
     }
     // errs() << "Write Done\n";
 

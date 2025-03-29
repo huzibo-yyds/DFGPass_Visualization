@@ -4,6 +4,7 @@ from graphviz import Source
 # Source.from_file('HLS_output/dot/icrc1/HLS_STGraph.dot').render("output_graph", format="png", cleanup=True)
 
 import os
+import sys
 
 def convert_dot_to_png(directory):
   """
@@ -27,6 +28,15 @@ def convert_dot_to_png(directory):
         except Exception as e:
           print(f"Failed to convert {dot_path}: {e}")
 
-# 示例调用
-target_directory = "./"  # 替换为你的目标目录路径
-convert_dot_to_png(target_directory)
+def main():
+  target_directory = "./"
+  if len(sys.argv) > 2:
+    print("Usage: python3 convert.py <target-dir>")
+    sys.exit(1)
+  elif len(sys.argv) == 2:
+    target_directory = sys.argv[1]
+
+  convert_dot_to_png(target_directory)
+
+if __name__ == "__main__":
+  main()
