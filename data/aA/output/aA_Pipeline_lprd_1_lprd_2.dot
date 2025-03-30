@@ -1,0 +1,119 @@
+digraph "DFG for 'aA_Pipeline_lprd_1_lprd_2' function" {
+	Node0xab59960[shape=record, label="  %j = alloca i7, align 1, !bitwidth !56"];
+	Node0xab5a1e0[shape=record, label="  %i = alloca i7, align 1, !bitwidth !56"];
+	Node0xab5a250[shape=record, label="  %indvar_flatten = alloca i13, align 2, !bitwidth !57"];
+	Node0xab5af00[shape=record, label="call @_ssdm_op_SpecInterface"];
+	Node0xab5aa10[shape=record, label="  store i13 0, i13* %indvar_flatten, align 2, !bitwidth !9, !dep_idx !58, !deps !59"];
+	Node0xab5a980[shape=record, label="  store i7 0, i7* %i, align 1, !bitwidth !9, !dep_idx !64, !deps !65"];
+	Node0xab5b4f0[shape=record, label="  store i7 0, i7* %j, align 1, !bitwidth !9, !dep_idx !68, !deps !69"];
+	Node0xab5b850[shape=record, label="  br label %for.inc, !bitwidth !9"];
+	Node0xab5b990[shape=record, label="  ret void, !bitwidth !9"];
+	Node0xab5ba00[shape=record, label="  %indvar_flatten_load = load i13, i13* %indvar_flatten, align 2, !bitwidth !72, !dep_idx !73, !deps !74"];
+	Node0xab5ac40[shape=record, label="call @_ssdm_op_SpecPipeline"];
+	Node0xab5be00[shape=record, label="  %icmp_ln10 = icmp eq i13 %indvar_flatten_load, -4096, !bitwidth !79"];
+	Node0xab5bec0[shape=record, label="  %add_ln10_1 = add i13 %indvar_flatten_load, 1, !bitwidth !72"];
+	Node0xab5bff0[shape=record, label="  br i1 %icmp_ln10, label %for.inc27.preheader.exitStub, label %for.inc10, !bitwidth !9"];
+	Node0xab5c060[shape=record, label="  %j_load = load i7, i7* %j, align 1, !bitwidth !80, !dep_idx !81, !deps !82"];
+	Node0xab5c4f0[shape=record, label="  %i_load = load i7, i7* %i, align 1, !bitwidth !80, !dep_idx !85, !deps !86"];
+	Node0xab5c820[shape=record, label="  %add_ln10 = add i7 %i_load, 1, !bitwidth !80"];
+	Node0xab513a0[shape=record, label="call @_ssdm_op_SpecLoopName"];
+	Node0xab597f0[shape=record, label="%empty = call @_ssdm_op_SpecLoopTripCount"];
+	Node0xab51520[shape=record, label="  %icmp_ln11 = icmp eq i7 %j_load, -64, !bitwidth !79"];
+	Node0xab515d0[shape=record, label="  %select_ln10 = select i1 %icmp_ln11, i7 0, i7 %j_load, !bitwidth !80"];
+	Node0xab51680[shape=record, label="  %select_ln10_1 = select i1 %icmp_ln11, i7 %add_ln10, i7 %i_load, !bitwidth !80"];
+	Node0xab516f0[shape=record, label="  %trunc_ln12 = trunc i7 %select_ln10_1 to i6, !bitwidth !89"];
+	Node0xab51870[shape=record, label="%tmp = call @_ssdm_op_BitConcatenate.i12.i6.i6"];
+	Node0xab5ab20[shape=record, label="call @_ssdm_op_SpecPipeline"];
+	Node0xab519b0[shape=record, label="  %zext_ln12 = zext i7 %select_ln10 to i12, !bitwidth !91"];
+	Node0xab51a40[shape=record, label="  %add_ln12 = add i12 %tmp, %zext_ln12, !bitwidth !90"];
+	Node0xab51ab0[shape=record, label="  %zext_ln12_1 = zext i12 %add_ln12 to i64, !bitwidth !92"];
+	Node0xab51b90[shape=record, label="  %A_addr = getelementptr [4096 x i32], [4096 x i32]* %A, i64 0, i64 %zext_ln12_1, !bitwidth !7"];
+	Node0xab51c50[shape=record, label="  %buff_A_addr = getelementptr [4096 x float], [4096 x float]* %buff_A, i64 0, i64 %zext_ln12_1, !bitwidth !9"];
+	Node0xab5f850[shape=record, label="call @_ssdm_op_SpecLoopName"];
+	Node0xab5f920[shape=record, label="  %A_load = load i32, i32* %A_addr, align 4, !bitwidth !45"];
+	Node0xab5f9b0[shape=record, label="  %bitcast_ln12 = bitcast i32 %A_load to float, !bitwidth !45"];
+	Node0xab5fa40[shape=record, label="  store float %bitcast_ln12, float* %buff_A_addr, align 4, !bitwidth !9"];
+	Node0xab5fad0[shape=record, label="  %add_ln11 = add i7 %select_ln10, 1, !bitwidth !80"];
+	Node0xab5fb60[shape=record, label="  store i13 %add_ln10_1, i13* %indvar_flatten, align 2, !bitwidth !9, !dep_idx !93, !deps !94"];
+	Node0xab5fe70[shape=record, label="  store i7 %select_ln10_1, i7* %i, align 1, !bitwidth !9, !dep_idx !98, !deps !99"];
+	Node0xab60180[shape=record, label="  store i7 %add_ln11, i7* %j, align 1, !bitwidth !9, !dep_idx !102, !deps !103"];
+	Node0xab60470[shape=record, label="  br label %for.inc, !llvm.loop !106, !bitwidth !9"];
+	Node0xab59960 -> Node0xab5a1e0
+	Node0xab5a1e0 -> Node0xab5a250
+	Node0xab5a250 -> Node0xab5af00
+	Node0xab5af00 -> Node0xab5aa10
+	Node0xab5aa10 -> Node0xab5a980
+	Node0xab5a980 -> Node0xab5b4f0
+	Node0xab5b4f0 -> Node0xab5b850
+	Node0xab5b850 -> Node0xab5ba00
+	Node0xab5ba00 -> Node0xab5ac40
+	Node0xab5ac40 -> Node0xab5be00
+	Node0xab5be00 -> Node0xab5bec0
+	Node0xab5bec0 -> Node0xab5bff0
+	Node0xab5bff0 -> Node0xab5b990
+	Node0xab5bff0 -> Node0xab5c060
+	Node0xab5c060 -> Node0xab5c4f0
+	Node0xab5c4f0 -> Node0xab5c820
+	Node0xab5c820 -> Node0xab513a0
+	Node0xab513a0 -> Node0xab597f0
+	Node0xab597f0 -> Node0xab51520
+	Node0xab51520 -> Node0xab515d0
+	Node0xab515d0 -> Node0xab51680
+	Node0xab51680 -> Node0xab516f0
+	Node0xab516f0 -> Node0xab51870
+	Node0xab51870 -> Node0xab5ab20
+	Node0xab5ab20 -> Node0xab519b0
+	Node0xab519b0 -> Node0xab51a40
+	Node0xab51a40 -> Node0xab51ab0
+	Node0xab51ab0 -> Node0xab51b90
+	Node0xab51b90 -> Node0xab51c50
+	Node0xab51c50 -> Node0xab5f850
+	Node0xab5f850 -> Node0xab5f920
+	Node0xab5f920 -> Node0xab5f9b0
+	Node0xab5f9b0 -> Node0xab5fa40
+	Node0xab5fa40 -> Node0xab5fad0
+	Node0xab5fad0 -> Node0xab5fb60
+	Node0xab5fb60 -> Node0xab5fe70
+	Node0xab5fe70 -> Node0xab60180
+	Node0xab60180 -> Node0xab60470
+	Node0xab60470 -> Node0xab5ba00
+edge [color=red]
+	Node0xab525a0 -> Node0xab5aa10
+	Node0xab5aa10 -> Node0xab5a250
+	Node0xab52bd0 -> Node0xab5a980
+	Node0xab5a980 -> Node0xab5a1e0
+	Node0xab52bd0 -> Node0xab5b4f0
+	Node0xab5b4f0 -> Node0xab59960
+	Node0xab5a250 -> Node0xab5ba00
+	Node0xab5ba00 -> Node0xab5be00
+	Node0xab5ba00 -> Node0xab5bec0
+	Node0xab5be00 -> Node0xab5bff0
+	Node0xab59960 -> Node0xab5c060
+	Node0xab5a1e0 -> Node0xab5c4f0
+	Node0xab5c4f0 -> Node0xab5c820
+	Node0xab5c060 -> Node0xab51520
+	Node0xab51520 -> Node0xab515d0
+	Node0xab5c060 -> Node0xab515d0
+	Node0xab51520 -> Node0xab51680
+	Node0xab5c820 -> Node0xab51680
+	Node0xab5c4f0 -> Node0xab51680
+	Node0xab51680 -> Node0xab516f0
+	Node0xab516f0 -> Node0xab51870
+	Node0xab515d0 -> Node0xab519b0
+	Node0xab51870 -> Node0xab51a40
+	Node0xab519b0 -> Node0xab51a40
+	Node0xab51a40 -> Node0xab51ab0
+	Node0xab51ab0 -> Node0xab51b90
+	Node0xab51ab0 -> Node0xab51c50
+	Node0xab51b90 -> Node0xab5f920
+	Node0xab5f920 -> Node0xab5f9b0
+	Node0xab5f9b0 -> Node0xab5fa40
+	Node0xab5fa40 -> Node0xab51c50
+	Node0xab515d0 -> Node0xab5fad0
+	Node0xab5bec0 -> Node0xab5fb60
+	Node0xab5fb60 -> Node0xab5a250
+	Node0xab51680 -> Node0xab5fe70
+	Node0xab5fe70 -> Node0xab5a1e0
+	Node0xab5fad0 -> Node0xab60180
+	Node0xab60180 -> Node0xab59960
+}

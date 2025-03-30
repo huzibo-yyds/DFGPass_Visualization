@@ -1,0 +1,8 @@
+digraph "DFG for '_ssdm_op_Read.ap_auto.i32P0A' function" {
+	Node0x3154e1d0[shape=record, label="  %empty = load i32, i32* %0, align 4"];
+	Node0x3154e260[shape=record, label="  ret i32 %empty"];
+	Node0x3154e1d0 -> Node0x3154e260
+edge [color=red]
+	Node0x31548560 -> Node0x3154e1d0
+	Node0x3154e1d0 -> Node0x3154e260
+}

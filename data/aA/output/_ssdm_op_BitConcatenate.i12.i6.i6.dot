@@ -1,0 +1,16 @@
+digraph "DFG for '_ssdm_op_BitConcatenate.i12.i6.i6' function" {
+	Node0xab6a6d0[shape=record, label="  %empty = zext i6 %0 to i12"];
+	Node0xab6a760[shape=record, label="  %empty_9 = zext i6 %1 to i12"];
+	Node0xab56b80[shape=record, label="  %empty_10 = shl i12 %empty, 6"];
+	Node0xab6a810[shape=record, label="  %empty_11 = or i12 %empty_10, %empty_9"];
+	Node0xab6a880[shape=record, label="  ret i12 %empty_11"];
+	Node0xab6a6d0 -> Node0xab6a760
+	Node0xab6a760 -> Node0xab56b80
+	Node0xab56b80 -> Node0xab6a810
+	Node0xab6a810 -> Node0xab6a880
+edge [color=red]
+	Node0xab6a6d0 -> Node0xab56b80
+	Node0xab56b80 -> Node0xab6a810
+	Node0xab6a760 -> Node0xab6a810
+	Node0xab6a810 -> Node0xab6a880
+}

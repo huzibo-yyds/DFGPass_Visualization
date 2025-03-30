@@ -1,0 +1,35 @@
+digraph "DFG for 'aA' function" {
+	Node0xab5d890[shape=record, label="call @_ssdm_op_SpecTopModule"];
+	Node0xab5da60[shape=record, label="call @_ssdm_op_SpecBitsMap"];
+	Node0xab670d0[shape=record, label="call @_ssdm_op_SpecInterface"];
+	Node0xab67620[shape=record, label="call @_ssdm_op_SpecInterface"];
+	Node0xab67710[shape=record, label="call @_ssdm_op_SpecBitsMap"];
+	Node0xab68270[shape=record, label="call @_ssdm_op_SpecInterface"];
+	Node0xab68360[shape=record, label="call @_ssdm_op_SpecBitsMap"];
+	Node0xab68490[shape=record, label="%alpha_read = call @_ssdm_op_Read.ap_auto.float"];
+	Node0xab68560[shape=record, label="  %buff_A = alloca [4096 x float], i64 1, align 4, !bitwidth !9"];
+	Node0xab685d0[shape=record, label="  %buff_A_out = alloca [4096 x float], i64 1, align 4, !bitwidth !9"];
+	Node0xab68750[shape=record, label="call @aA_Pipeline_lprd_1_lprd_2"];
+	Node0xab4f160[shape=record, label="call @aA_Pipeline_lp1_lp2"];
+	Node0xab68db0[shape=record, label="call @aA_Pipeline_lpwr_1_lpwr_2"];
+	Node0xab690a0[shape=record, label="  ret void, !bitwidth !9"];
+	Node0xab5d890 -> Node0xab5da60
+	Node0xab5da60 -> Node0xab670d0
+	Node0xab670d0 -> Node0xab67620
+	Node0xab67620 -> Node0xab67710
+	Node0xab67710 -> Node0xab68270
+	Node0xab68270 -> Node0xab68360
+	Node0xab68360 -> Node0xab68490
+	Node0xab68490 -> Node0xab68560
+	Node0xab68560 -> Node0xab685d0
+	Node0xab685d0 -> Node0xab68750
+	Node0xab68750 -> Node0xab4f160
+	Node0xab4f160 -> Node0xab68db0
+	Node0xab68db0 -> Node0xab690a0
+edge [color=red]
+	Node0xab68560 -> Node0xab68750
+	Node0xab68560 -> Node0xab4f160
+	Node0xab685d0 -> Node0xab4f160
+	Node0xab68490 -> Node0xab4f160
+	Node0xab685d0 -> Node0xab68db0
+}

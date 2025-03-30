@@ -1,0 +1,82 @@
+digraph "DFG for 'top_cdfg' function" {
+	Node0x3274d0b0[shape=record, label="  %sum = alloca i32, align 4, !bitwidth !26"];
+	Node0x3274e6d0[shape=record, label="  %i = alloca i4, align 1, !bitwidth !27"];
+	Node0x3274e920[shape=record, label="call @_ssdm_op_SpecTopModule"];
+	Node0x3274eac0[shape=record, label="call @_ssdm_op_SpecBitsMap"];
+	Node0x3274f260[shape=record, label="call @_ssdm_op_SpecInterface"];
+	Node0x3274f380[shape=record, label="call @_ssdm_op_SpecBitsMap"];
+	Node0x3274fee0[shape=record, label="call @_ssdm_op_SpecInterface"];
+	Node0x326f4110[shape=record, label="  store i4 1, i4* %i, align 1, !bitwidth !29, !dep_idx !30, !deps !31"];
+	Node0x326f41a0[shape=record, label="  store i32 0, i32* %sum, align 4, !bitwidth !29, !dep_idx !36, !deps !37"];
+	Node0x32750cf0[shape=record, label="  br label %for.inc, !bitwidth !29"];
+	Node0x32750d60[shape=record, label="  %i_1 = load i4, i4* %i, align 1, !bitwidth !40, !dep_idx !41, !deps !42"];
+	Node0x3274fc20[shape=record, label="call @_ssdm_op_SpecPipeline"];
+	Node0x32751290[shape=record, label="  %icmp_ln4 = icmp eq i4 %i_1, -6, !bitwidth !47"];
+	Node0x327494a0[shape=record, label="%empty = call @_ssdm_op_SpecLoopTripCount"];
+	Node0x3274a340[shape=record, label="  br i1 %icmp_ln4, label %for.end, label %for.inc.split, !llvm.loop !48, !bitwidth !29"];
+	Node0x32751950[shape=record, label="  %sum_load = load i32, i32* %sum, align 4, !bitwidth !50, !dep_idx !51, !deps !52"];
+	Node0x32751ec0[shape=record, label="call @_ssdm_op_SpecLoopName"];
+	Node0x32752140[shape=record, label="%a_read = call @_ssdm_op_Read.ap_auto.i32P0A"];
+	Node0x32752c60[shape=record, label="  %sum_1 = add nsw i32 %a_read, %sum_load, !bitwidth !50"];
+	Node0x32752d10[shape=record, label="  %shl_ln7 = shl i32 %sum_1, 1, !bitwidth !50"];
+	Node0x32752f90[shape=record, label="call @_ssdm_op_Write.ap_auto.i32P0A"];
+	Node0x327532a0[shape=record, label="  %zext_ln8 = zext i4 %i_1 to i32, !bitwidth !62"];
+	Node0x32753450[shape=record, label="  %mul_ln8 = mul nsw i32 %sum_1, %zext_ln8, !bitwidth !50"];
+	Node0x32753500[shape=record, label="  %add_ln8 = add i4 %i_1, 1, !bitwidth !40"];
+	Node0x32753ca0[shape=record, label="call @_ssdm_op_Write.ap_auto.i32P0A"];
+	Node0x32753d90[shape=record, label="  store i4 %add_ln8, i4* %i, align 1, !bitwidth !29, !dep_idx !63, !deps !64"];
+	Node0x32754060[shape=record, label="  store i32 %sum_1, i32* %sum, align 4, !bitwidth !29, !dep_idx !67, !deps !68"];
+	Node0x32754350[shape=record, label="  br label %for.inc, !llvm.loop !48, !bitwidth !29"];
+	Node0x327549f0[shape=record, label="  ret void, !bitwidth !29"];
+	Node0x3274d0b0 -> Node0x3274e6d0
+	Node0x3274e6d0 -> Node0x3274e920
+	Node0x3274e920 -> Node0x3274eac0
+	Node0x3274eac0 -> Node0x3274f260
+	Node0x3274f260 -> Node0x3274f380
+	Node0x3274f380 -> Node0x3274fee0
+	Node0x3274fee0 -> Node0x326f4110
+	Node0x326f4110 -> Node0x326f41a0
+	Node0x326f41a0 -> Node0x32750cf0
+	Node0x32750cf0 -> Node0x32750d60
+	Node0x32750d60 -> Node0x3274fc20
+	Node0x3274fc20 -> Node0x32751290
+	Node0x32751290 -> Node0x327494a0
+	Node0x327494a0 -> Node0x3274a340
+	Node0x3274a340 -> Node0x327549f0
+	Node0x3274a340 -> Node0x32751950
+	Node0x32751950 -> Node0x32751ec0
+	Node0x32751ec0 -> Node0x32752140
+	Node0x32752140 -> Node0x32752c60
+	Node0x32752c60 -> Node0x32752d10
+	Node0x32752d10 -> Node0x32752f90
+	Node0x32752f90 -> Node0x327532a0
+	Node0x327532a0 -> Node0x32753450
+	Node0x32753450 -> Node0x32753500
+	Node0x32753500 -> Node0x32753ca0
+	Node0x32753ca0 -> Node0x32753d90
+	Node0x32753d90 -> Node0x32754060
+	Node0x32754060 -> Node0x32754350
+	Node0x32754350 -> Node0x32750d60
+edge [color=red]
+	Node0x3274e860 -> Node0x326f4110
+	Node0x326f4110 -> Node0x3274e6d0
+	Node0x3274ecb0 -> Node0x326f41a0
+	Node0x326f41a0 -> Node0x3274d0b0
+	Node0x3274e6d0 -> Node0x32750d60
+	Node0x32750d60 -> Node0x32751290
+	Node0x32751290 -> Node0x3274a340
+	Node0x3274d0b0 -> Node0x32751950
+	Node0x32752140 -> Node0x32752c60
+	Node0x32751950 -> Node0x32752c60
+	Node0x32752c60 -> Node0x32752d10
+	Node0x32752d10 -> Node0x32752f90
+	Node0x32750d60 -> Node0x327532a0
+	Node0x32752c60 -> Node0x32753450
+	Node0x327532a0 -> Node0x32753450
+	Node0x32750d60 -> Node0x32753500
+	Node0x32753450 -> Node0x32753ca0
+	Node0x32753500 -> Node0x32753d90
+	Node0x32753d90 -> Node0x3274e6d0
+	Node0x32752c60 -> Node0x32754060
+	Node0x32754060 -> Node0x3274d0b0
+}

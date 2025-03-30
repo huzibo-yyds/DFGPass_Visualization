@@ -1,0 +1,120 @@
+digraph "DFG for 'aA_Pipeline_lp1_lp2' function" {
+	Node0xab60a40[shape=record, label="  %j = alloca i7, align 1, !bitwidth !56"];
+	Node0xab60ab0[shape=record, label="  %i = alloca i7, align 1, !bitwidth !56"];
+	Node0xab60b40[shape=record, label="  %indvar_flatten6 = alloca i13, align 2, !bitwidth !57"];
+	Node0xab60d30[shape=record, label="%alpha_read = call @_ssdm_op_Read.ap_auto.float"];
+	Node0xab60e50[shape=record, label="  store i13 0, i13* %indvar_flatten6, align 2, !bitwidth !9, !dep_idx !58, !deps !59"];
+	Node0xab61140[shape=record, label="  store i7 0, i7* %i, align 1, !bitwidth !9, !dep_idx !64, !deps !65"];
+	Node0xab61450[shape=record, label="  store i7 0, i7* %j, align 1, !bitwidth !9, !dep_idx !68, !deps !69"];
+	Node0xab61790[shape=record, label="  br label %for.inc27, !bitwidth !9"];
+	Node0xab61930[shape=record, label="  ret void, !bitwidth !9"];
+	Node0xab619a0[shape=record, label="  %indvar_flatten6_load = load i13, i13* %indvar_flatten6, align 2, !bitwidth !72, !dep_idx !73, !deps !74"];
+	Node0xab61db0[shape=record, label="call @_ssdm_op_SpecPipeline"];
+	Node0xab61ec0[shape=record, label="  %icmp_ln16 = icmp eq i13 %indvar_flatten6_load, -4096, !bitwidth !79"];
+	Node0xab61f80[shape=record, label="  %add_ln16_1 = add i13 %indvar_flatten6_load, 1, !bitwidth !72"];
+	Node0xab62250[shape=record, label="  br i1 %icmp_ln16, label %for.inc47.preheader.exitStub, label %for.inc30, !bitwidth !9"];
+	Node0xab622c0[shape=record, label="  %j_load = load i7, i7* %j, align 1, !bitwidth !80, !dep_idx !81, !deps !82"];
+	Node0xab625b0[shape=record, label="  %i_load = load i7, i7* %i, align 1, !bitwidth !80, !dep_idx !85, !deps !86"];
+	Node0xab628e0[shape=record, label="  %add_ln16 = add i7 %i_load, 1, !bitwidth !80"];
+	Node0xab629a0[shape=record, label="call @_ssdm_op_SpecLoopName"];
+	Node0xab60920[shape=record, label="%empty = call @_ssdm_op_SpecLoopTripCount"];
+	Node0xab62b20[shape=record, label="  %icmp_ln17 = icmp eq i7 %j_load, -64, !bitwidth !79"];
+	Node0xab62bd0[shape=record, label="  %select_ln16 = select i1 %icmp_ln17, i7 0, i7 %j_load, !bitwidth !80"];
+	Node0xab62c80[shape=record, label="  %select_ln16_1 = select i1 %icmp_ln17, i7 %add_ln16, i7 %i_load, !bitwidth !80"];
+	Node0xab62d20[shape=record, label="  %trunc_ln18 = trunc i7 %select_ln16_1 to i6, !bitwidth !89"];
+	Node0xab59ab0[shape=record, label="%tmp_1 = call @_ssdm_op_BitConcatenate.i12.i6.i6"];
+	Node0xab59c20[shape=record, label="call @_ssdm_op_SpecPipeline"];
+	Node0xab59d10[shape=record, label="  %zext_ln18 = zext i7 %select_ln16 to i12, !bitwidth !91"];
+	Node0xab59da0[shape=record, label="  %add_ln18 = add i12 %tmp_1, %zext_ln18, !bitwidth !90"];
+	Node0xab5a130[shape=record, label="  %zext_ln18_1 = zext i12 %add_ln18 to i64, !bitwidth !92"];
+	Node0xab63e10[shape=record, label="  %buff_A_addr = getelementptr [4096 x float], [4096 x float]* %buff_A, i64 0, i64 %zext_ln18_1, !bitwidth !9"];
+	Node0xab63f00[shape=record, label="  %buff_A_out_addr = getelementptr [4096 x float], [4096 x float]* %buff_A_out, i64 0, i64 %zext_ln18_1, !bitwidth !9"];
+	Node0xab64030[shape=record, label="call @_ssdm_op_SpecLoopName"];
+	Node0xab64100[shape=record, label="  %buff_A_load = load float, float* %buff_A_addr, align 4, !bitwidth !45"];
+	Node0xab64190[shape=record, label="  %mul = fmul float %buff_A_load, %alpha_read, !bitwidth !45"];
+	Node0xab64220[shape=record, label="  store float %mul, float* %buff_A_out_addr, align 4, !bitwidth !9"];
+	Node0xab642b0[shape=record, label="  %add_ln17 = add i7 %select_ln16, 1, !bitwidth !80"];
+	Node0xab5c8e0[shape=record, label="  store i13 %add_ln16_1, i13* %indvar_flatten6, align 2, !bitwidth !9, !dep_idx !93, !deps !94"];
+	Node0xab5cbf0[shape=record, label="  store i7 %select_ln16_1, i7* %i, align 1, !bitwidth !9, !dep_idx !98, !deps !99"];
+	Node0xab5cf00[shape=record, label="  store i7 %add_ln17, i7* %j, align 1, !bitwidth !9, !dep_idx !102, !deps !103"];
+	Node0xab532b0[shape=record, label="  br label %for.inc27, !llvm.loop !106, !bitwidth !9"];
+	Node0xab60a40 -> Node0xab60ab0
+	Node0xab60ab0 -> Node0xab60b40
+	Node0xab60b40 -> Node0xab60d30
+	Node0xab60d30 -> Node0xab60e50
+	Node0xab60e50 -> Node0xab61140
+	Node0xab61140 -> Node0xab61450
+	Node0xab61450 -> Node0xab61790
+	Node0xab61790 -> Node0xab619a0
+	Node0xab619a0 -> Node0xab61db0
+	Node0xab61db0 -> Node0xab61ec0
+	Node0xab61ec0 -> Node0xab61f80
+	Node0xab61f80 -> Node0xab62250
+	Node0xab62250 -> Node0xab61930
+	Node0xab62250 -> Node0xab622c0
+	Node0xab622c0 -> Node0xab625b0
+	Node0xab625b0 -> Node0xab628e0
+	Node0xab628e0 -> Node0xab629a0
+	Node0xab629a0 -> Node0xab60920
+	Node0xab60920 -> Node0xab62b20
+	Node0xab62b20 -> Node0xab62bd0
+	Node0xab62bd0 -> Node0xab62c80
+	Node0xab62c80 -> Node0xab62d20
+	Node0xab62d20 -> Node0xab59ab0
+	Node0xab59ab0 -> Node0xab59c20
+	Node0xab59c20 -> Node0xab59d10
+	Node0xab59d10 -> Node0xab59da0
+	Node0xab59da0 -> Node0xab5a130
+	Node0xab5a130 -> Node0xab63e10
+	Node0xab63e10 -> Node0xab63f00
+	Node0xab63f00 -> Node0xab64030
+	Node0xab64030 -> Node0xab64100
+	Node0xab64100 -> Node0xab64190
+	Node0xab64190 -> Node0xab64220
+	Node0xab64220 -> Node0xab642b0
+	Node0xab642b0 -> Node0xab5c8e0
+	Node0xab5c8e0 -> Node0xab5cbf0
+	Node0xab5cbf0 -> Node0xab5cf00
+	Node0xab5cf00 -> Node0xab532b0
+	Node0xab532b0 -> Node0xab619a0
+edge [color=red]
+	Node0xab525a0 -> Node0xab60e50
+	Node0xab60e50 -> Node0xab60b40
+	Node0xab52bd0 -> Node0xab61140
+	Node0xab61140 -> Node0xab60ab0
+	Node0xab52bd0 -> Node0xab61450
+	Node0xab61450 -> Node0xab60a40
+	Node0xab60b40 -> Node0xab619a0
+	Node0xab619a0 -> Node0xab61ec0
+	Node0xab619a0 -> Node0xab61f80
+	Node0xab61ec0 -> Node0xab62250
+	Node0xab60a40 -> Node0xab622c0
+	Node0xab60ab0 -> Node0xab625b0
+	Node0xab625b0 -> Node0xab628e0
+	Node0xab622c0 -> Node0xab62b20
+	Node0xab62b20 -> Node0xab62bd0
+	Node0xab622c0 -> Node0xab62bd0
+	Node0xab62b20 -> Node0xab62c80
+	Node0xab628e0 -> Node0xab62c80
+	Node0xab625b0 -> Node0xab62c80
+	Node0xab62c80 -> Node0xab62d20
+	Node0xab62d20 -> Node0xab59ab0
+	Node0xab62bd0 -> Node0xab59d10
+	Node0xab59ab0 -> Node0xab59da0
+	Node0xab59d10 -> Node0xab59da0
+	Node0xab59da0 -> Node0xab5a130
+	Node0xab5a130 -> Node0xab63e10
+	Node0xab5a130 -> Node0xab63f00
+	Node0xab63e10 -> Node0xab64100
+	Node0xab64100 -> Node0xab64190
+	Node0xab60d30 -> Node0xab64190
+	Node0xab64190 -> Node0xab64220
+	Node0xab64220 -> Node0xab63f00
+	Node0xab62bd0 -> Node0xab642b0
+	Node0xab61f80 -> Node0xab5c8e0
+	Node0xab5c8e0 -> Node0xab60b40
+	Node0xab62c80 -> Node0xab5cbf0
+	Node0xab5cbf0 -> Node0xab60ab0
+	Node0xab642b0 -> Node0xab5cf00
+	Node0xab5cf00 -> Node0xab60a40
+}

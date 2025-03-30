@@ -1,0 +1,54 @@
+digraph "DFG for 'top_dfg' function" {
+	Node0x315484b0[shape=record, label="call @_ssdm_op_SpecTopModule"];
+	Node0x31548650[shape=record, label="call @_ssdm_op_SpecBitsMap"];
+	Node0x31549e10[shape=record, label="call @_ssdm_op_SpecInterface"];
+	Node0x31549f30[shape=record, label="call @_ssdm_op_SpecBitsMap"];
+	Node0x3154aa90[shape=record, label="call @_ssdm_op_SpecInterface"];
+	Node0x3154ab80[shape=record, label="call @_ssdm_op_SpecBitsMap"];
+	Node0x3154b0d0[shape=record, label="call @_ssdm_op_SpecInterface"];
+	Node0x3154b290[shape=record, label="%b_read = call @_ssdm_op_Read.ap_auto.i32P0A"];
+	Node0x314f0110[shape=record, label="  %add_ln3 = add nsw i32 %b_read, 2, !bitwidth !23"];
+	Node0x3154bc70[shape=record, label="call @_ssdm_op_Write.ap_auto.i32P0A"];
+	Node0x3154be60[shape=record, label="  %mul_ln4 = mul nsw i32 %b_read, %add_ln3, !bitwidth !23"];
+	Node0x3154bef0[shape=record, label="  %t1 = add nsw i32 %mul_ln4, 4, !bitwidth !23"];
+	Node0x3154c040[shape=record, label="%c_read = call @_ssdm_op_Read.ap_auto.i32P0A"];
+	Node0x3154c3f0[shape=record, label="  %t2 = add nsw i32 %c_read, %t1, !bitwidth !23"];
+	Node0x3154c4a0[shape=record, label="  %t3 = mul nsw i32 %b_read, %t2, !bitwidth !23"];
+	Node0x3154c550[shape=record, label="  %add_ln7 = add i32 %t1, %t3, !bitwidth !23"];
+	Node0x3154c600[shape=record, label="  %add_ln7_1 = add i32 %add_ln7, %t2, !bitwidth !23"];
+	Node0x3154c8e0[shape=record, label="call @_ssdm_op_Write.ap_auto.i32P0A"];
+	Node0x3154d1e0[shape=record, label="  ret void, !bitwidth !24"];
+	Node0x315484b0 -> Node0x31548650
+	Node0x31548650 -> Node0x31549e10
+	Node0x31549e10 -> Node0x31549f30
+	Node0x31549f30 -> Node0x3154aa90
+	Node0x3154aa90 -> Node0x3154ab80
+	Node0x3154ab80 -> Node0x3154b0d0
+	Node0x3154b0d0 -> Node0x3154b290
+	Node0x3154b290 -> Node0x314f0110
+	Node0x314f0110 -> Node0x3154bc70
+	Node0x3154bc70 -> Node0x3154be60
+	Node0x3154be60 -> Node0x3154bef0
+	Node0x3154bef0 -> Node0x3154c040
+	Node0x3154c040 -> Node0x3154c3f0
+	Node0x3154c3f0 -> Node0x3154c4a0
+	Node0x3154c4a0 -> Node0x3154c550
+	Node0x3154c550 -> Node0x3154c600
+	Node0x3154c600 -> Node0x3154c8e0
+	Node0x3154c8e0 -> Node0x3154d1e0
+edge [color=red]
+	Node0x3154b290 -> Node0x314f0110
+	Node0x314f0110 -> Node0x3154bc70
+	Node0x3154b290 -> Node0x3154be60
+	Node0x314f0110 -> Node0x3154be60
+	Node0x3154be60 -> Node0x3154bef0
+	Node0x3154c040 -> Node0x3154c3f0
+	Node0x3154bef0 -> Node0x3154c3f0
+	Node0x3154b290 -> Node0x3154c4a0
+	Node0x3154c3f0 -> Node0x3154c4a0
+	Node0x3154bef0 -> Node0x3154c550
+	Node0x3154c4a0 -> Node0x3154c550
+	Node0x3154c550 -> Node0x3154c600
+	Node0x3154c3f0 -> Node0x3154c600
+	Node0x3154c600 -> Node0x3154c8e0
+}

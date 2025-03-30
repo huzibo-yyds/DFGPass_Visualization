@@ -1,0 +1,8 @@
+digraph "DFG for '_ssdm_op_Write.ap_auto.i32P0A' function" {
+	Node0x32752e20[shape=record, label="  store i32 %1, i32* %0, align 4"];
+	Node0x327550e0[shape=record, label="  ret void"];
+	Node0x32752e20 -> Node0x327550e0
+edge [color=red]
+	Node0x32752ec8 -> Node0x32752e20
+	Node0x32752e20 -> Node0x32752ea0
+}
